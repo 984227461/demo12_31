@@ -42,7 +42,7 @@
 		<form action="selFaqs" method="post">
 			<table cellspacing="0" cellpadding="0">
 				<tr class="tt"><td colspan="4">常见问题检索</td></tr>
-				<tr><td>请输入查询关键字： </td><td><input type="text" name="fname" id="fname"/> </td><td><input type="submit" value="查询"/> </td><td><a href="insert.jsp">添加常见问题</a></td></tr>
+				<tr><td>请输入查询关键字：</td><td><input type="text" name="fname" id="fname"/> </td><td><input type="submit" value="查询"/> </td><td><a href="insert.jsp">添加常见问题</a></td></tr>
 				<tr class="tt"><td colspan="4">检索结果</td></tr>
 				<tr style="font-weight:bold;font-size:14px;">
 					<td>编号</td><td>标题</td><td>分类</td><td>创建时间</td>
