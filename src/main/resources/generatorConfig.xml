@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<classPathEntry location="D:\maven_repository\mysql\mysql-connector-java\5.1.8\mysql-connector-java-5.1.8.jar"/>
+    <context id="MybatisGenerator" targetRuntime="mybatis3">
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+ 
+        <!-- 数据库连接信息：驱动类 ，连接地址，用户名，密码-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/faq_demo2"
+                        userId="root" password="123456">
+        </jdbcConnection>
+ 
+        <!-- 默认值 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+ 
+        <!-- 生成的实体类的存放位置 -->
+        <javaModelGenerator targetPackage="com.su.entity" targetProject="src/main/java">
+            <!-- enableSubPackages：是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+ 
+        <!-- 生成的Mapper映射文件（XML）的存放位置 -->
+        <sqlMapGenerator targetPackage="com.su.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+ 
+        <!-- 生成的mapper接口(JAVA文件)的存放位置 -->
+        <javaClientGenerator targetPackage="com.su.dao" type="XMLMAPPER" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+ 
+        <!-- 指定数据库表 -->
+        <table tableName="classes" domainObjectName="Classes_n" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+  		<table tableName="faqs" domainObjectName="Faqs" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.su.dao.FaqsMapper" >
+  <resultMap id="BaseResultMap" type="com.su.entity.Faqs" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="createdate" property="createdate" jdbcType="DATE" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+ </resultMap>
+ <select id="selFaqsOrderByTime" resultType="com.su.dto.Dto" >
+ 	select f.id,f.title,f.createdate,f.content,c.cname from Faqs f
+ 	join  classes c on c.id=f.classid
+ 	<where>
+ 		<if test="_parameter!=null">f.title like concat('%',#{_parameter},'%')</if>
+ 	</where>
+ 	order by f.createdate desc
+ </select>
+ 
+ <select id="selFaqsById" resultType="com.su.dto.Dto" parameterType="Integer">
+ 	select f.id,f.title,f.createdate,f.content,c.cname from Faqs f
+ 	join  classes c on c.id=f.classid
+ 	 where f.id=#{_parameter}
+ </select>
+ 
+ <insert id="insFaqs" parameterType="com.su.entity.Faqs">
+ 	insert into faqs (title,createdate,content,classid) values (#{title},#{createdate},#{content},#{classid})
+ </insert>
+</mapper>
